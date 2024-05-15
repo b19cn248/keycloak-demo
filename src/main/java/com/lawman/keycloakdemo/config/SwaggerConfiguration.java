@@ -23,12 +23,10 @@ public class SwaggerConfiguration {
   @Bean
   public OpenAPI customizeOpenAPI() {
     final String oauthSecuritySchemeName = "OAuth2";
-    final String jwtSecuritySchemeName = "bearerAuth";
 
     return new OpenAPI()
           .info(new Info().title("My API").version("v1"))
           .addSecurityItem(new SecurityRequirement().addList(oauthSecuritySchemeName))
-          .addSecurityItem(new SecurityRequirement().addList(jwtSecuritySchemeName))
           .components(new Components()
                 .addSecuritySchemes(oauthSecuritySchemeName,
                       new SecurityScheme()
