@@ -1,0 +1,21 @@
+server:
+  port: 8888
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8080/realms/master/protocol/openid-connect/certs
+
+auth:
+  server:
+    url: ${AUTH_SERVICE_URL:http://localhost:8888}
+
+authorization:
+  server:
+    url: http://localhost:8080/realms/master/protocol/openid-connect/auth
+
+token:
+  server:
+    url: http://localhost:8080/realms/master/protocol/openid-connect/token
